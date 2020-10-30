@@ -18,12 +18,12 @@
     <script>
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+            xhttp.onreadystatechange = function () { // La propiedad onreadystatechange permite definir una funcion, la cual es ejecutada cuando la solicitud recibe una respuesta
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "src/01_ajax_info.txt", true);
+            xhttp.open("GET", "src/01_ajax_info.txt", true); // El Open() hace referencia a un archivo alojado en el servidor. El true indica que la solicitud al servidor se realiza de manera Asyncrona, con ello, mientras espera respuesta a peticion, se puede parovechar para ejecutar otros scripts o tratar con la respuesta cuando ya esté lista. Si se indica false singnifica que la solicitud es syncrona, lo cual se puede usar para testing rapido, en cuyo caso el metodo onreadystatechange no es necesario
             xhttp.send();
         }
     </script>
