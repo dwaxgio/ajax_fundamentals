@@ -1,0 +1,5 @@
+The HTML page contains a <div> section and a <button>.
+
+The <div> section is used to display information from a server.
+
+The <button> calls a function (if it is clicked).
