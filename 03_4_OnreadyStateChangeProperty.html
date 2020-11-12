@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function loadDoc()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() // Define una funcion para ser ejecutada cuando la solicitud reciba una respuesta
+            {
+                if(this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "src/ajax_info.txt", true); // Esta asyncrhona, si se campia a false, la funcion queda syncrona
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

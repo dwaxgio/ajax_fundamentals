@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+       <script>
+           var xhttp, xmlDoc, txt, x, i;
+           xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function()
+           {
+               if(this.readyState == 4 && this.status == 200)
+               {
+                   xmlDoc = this.responseXML; // Se recibe la respuesta desde servidor como un XML
+                   txt = "";
+                   x = xmlDoc.getElementByTagName("ARTIST");
+                   for(i = 0; i< x.length; i++)
+                   {
+                       txt = txt + x[i].childNode[0].nodeValue + "<br>";
+                   }
+                   document.getElementById("demo").innerHTML = txt;
+               }
+           };
+           xhttp.open("GET", "cd_catalog.xml", true);
+           xhttp.send();
+       </script>
+    </div>
+</body>
+</html>
